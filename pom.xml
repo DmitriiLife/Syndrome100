@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.7.2</version>
+            <version>5.4.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -39,20 +39,39 @@
                 <version>0.8.5</version>
                 <executions>
                     <execution>
-                        <id>prepare-agent</id>
-                        <phase>initialize</phase>
+                        <id>prepare-agent19</id>
+                        <!-- <phase>initialize</phase> -->
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>report</id>
-                        <phase>verify</phase>
+                        <id>report19</id>
+                        <!-- <phase>verify</phase> -->
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
                 </executions>
+                <configuration>
+                    <rules>
+                        <rule>
+                            <limits>
+                                <limit>
+                                    <counter>BRANCH</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>100%</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
             </plugin>
         </plugins>
     </build>
